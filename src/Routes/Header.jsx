@@ -4,18 +4,18 @@ export default function Header () {
 
     return (
         <header>
-            <div className="container">
+            <div className="header-container">
                 <div className="content">
                     <div>
-                        <Link to='/search'>Recipes</Link> 
+                        <Link className="logo" to='/search'>Recipes</Link> 
                     </div>
                     <ul className="links">
                         <li>
-                            <Link to='/favorites'>My Favorites</Link>
+                            <Link className="button" to='/favorites'>My Favorites</Link>
                         </li>
 
                         <li>
-                            <Link className="button" to='/search'>Search</Link>
+                            <Link className="button" to='/search'>More recipes</Link>
                         </li>
                     </ul>
                 </div>

@@ -1,5 +1,5 @@
 import './style.scss';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Header from './Routes/Header';
 import FavoriteList from './Routes/FavoriteList';
@@ -11,10 +11,11 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const [results, setResults] = useState([]);
   const [search, setSearch] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
 
   useEffect (() => {
     let data = localStorage.getItem('favorite');
-    if(null === data) {
+    if(data === null) {
       localStorage.setItem('favorite', JSON.stringify([]));
       setFavorites([]);
     } else {
@@ -24,24 +25,40 @@ function App() {
 
   const deleteFavorite = id => {
     const newData = favorites.filter(fw => fw.id !== id);
-        localStorage.setItem('favorite', JSON.stringify(newData));
+      localStorage.setItem('favorite', JSON.stringify(newData));
 
-        setFavorites(favorites => favorites.filter(fw => fw.id !== id));
+      setFavorites(favorites => favorites.filter(fw => fw.id !== id));
   }
 
-  const findData = (e) => {
-    const typing = e.target.value;
-    setSearch(typing);
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
 
-    fetch(`https://themealdb.com/api/json/v1/1/search.php?s=${typing}`)
-    .then(res => res.json())
-    .then((data) => {
-      const dataCopy = data.meals;
-      setResults(dataCopy);
-    })
-    .catch(error => console.log(error));
+  const findData = () => {
+    if (search !== '') {
+      fetch(`https://themealdb.com/api/json/v1/1/search.php?s=${search}`)
+      .then(res => res.json())
+      .then((data) => {
+        const dataCopy = data.meals;
+        if (dataCopy !== null) {
+          setResults(dataCopy);
+          setErrorMsg('');
+        // } else if (search.length === 0) {
+        //   setResults([]);
+        //   console.log(`Please fill out this field.`);
+        //   // setErrorMsg(`Please fill out this field.`);
+        } else {
+          setResults([]);
+          setErrorMsg(`Sorry, we couldn't find any results for "${search}".`);
+        }
+      })
+      .catch(error => console.log(error));
+    }
+  };
+
+  const selectedRecipes = (recipe) => {
+    setResults(recipe)
   }
-
 
   return (
     <BrowserRouter>
@@ -49,7 +66,7 @@ function App() {
           <Header></Header>
         <Routes>
           <Route path='/favorites' element={<FavoriteList></FavoriteList>}></Route>
-          <Route path='/search' element={<Search search={search} findData={findData} results={results}></Search>}></Route>
+          <Route path='/search' element={<Search search={search} findData={findData} handleSearch={handleSearch} results={results} selectedRecipes={selectedRecipes} errorMsg={errorMsg}></Search>}></Route>
         </Routes>
       </div>
     </BrowserRouter>
