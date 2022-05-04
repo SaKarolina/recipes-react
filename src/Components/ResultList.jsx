@@ -1,9 +1,10 @@
-function ResultList ({search}) {
+function ResultList ({search, addFavorite}) {
 
     return (
         <div className="result-cards">
             <div className="card">
                 <div className="poster-wrapper">
+                <div className="heart" style={{width: '2em'}} onClick={() => addFavorite(search)}></div>
                     {search.strMealThumb ? (
                         <img className="poster-img" src={`${search.strMealThumb}`} alt={`${search.strMeal}`}></img>
                     ) : (
@@ -14,7 +15,6 @@ function ResultList ({search}) {
                 <div className="info">
                     <div className="info-header">
                         <h3 className="title">{search.strMeal}</h3>
-                        <div className="heart" style={{width: '2em'}}></div>
                     </div>
 
                     <table className="info-table">
@@ -27,7 +27,7 @@ function ResultList ({search}) {
                             <tr>
                                 <td>
                                     {Object.keys(search).map ((element, i) => element.substring(0, 13) === 'strIngredient' && (
-                                        <li key={i}>{search[element]}</li>
+                                        <li className="list" key={i}>{search[element]}</li>
                                     ))}
                                 </td>
                                 <td>

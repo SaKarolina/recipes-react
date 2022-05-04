@@ -1,6 +1,6 @@
 import ResultList from "../Components/ResultList";
 
-export default function Search ({search, findData, results, handleSearch, errorMsg}) {
+export default function Search ({search, findData, results, handleSearch, errorMsg, addFavorite}) {
 
     const submit = (event) => {
         event.preventDefault();
@@ -18,9 +18,9 @@ export default function Search ({search, findData, results, handleSearch, errorM
                 <ul className="results">
                     {results.length > 0 ? results.map (recipe => (
                         <li key={recipe.idMeal}>
-                            {results && <ResultList search={recipe}></ResultList>}
+                            {results && <ResultList search={recipe} addFavorite={addFavorite}></ResultList>}
                         </li>
-                    )) : (<div>{errorMsg}</div>)}
+                    )) : (<div className="error">{errorMsg}</div>)}
                 </ul>
             </div>
 

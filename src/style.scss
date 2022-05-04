@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
-
 html {
     scroll-behavior: smooth;
 }
@@ -30,28 +29,32 @@ ul {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-color: #f2e6d9;
+    background-color: #ffffff;
+    background-image: url(./Img/background.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
     .header-container {
         width: 100vw;
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: left;
-        background-color: #ead9c7;
-        background: #E8E2DC;
-        background: -moz-linear-gradient(top, #E8E2DC 0%, #F4F0ED 46%, #FFFBF8 100%);
-        background: -webkit-linear-gradient(top, #E8E2DC 0%, #F4F0ED 46%, #FFFBF8 100%);
-        background: linear-gradient(to bottom, #E8E2DC 0%, #F4F0ED 46%, #fffbf873 100%);
-        box-shadow: 0px 2px 15px -5px #b5a89b88;
+        background-color: #eae7e7;
+        background: #A3A3A3;
+        background: -moz-linear-gradient(top, #A3A3A3 0%, #D6D6D6 21%, #FEFEFE 100%);
+        background: -webkit-linear-gradient(top, #A3A3A3 0%, #D6D6D6 21%, #fefefec3 100%);
+        background: linear-gradient(to bottom, #A3A3A3 0%, #D6D6D6 21%, #fefefe95 100%);
+        box-shadow: 0px 2px 15px -5px #a3a3a374;
         .content {
             width: 100%;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 25px 30px;
             .logo {
-                color: #bbaea3;
+                color: #ffffff;
+                text-shadow: -2px 0px 6px #0a0a04;
                 font-size: 35px;
                 line-height: 1.2em;
                 font-weight: 900;
@@ -64,15 +67,15 @@ ul {
                     font-size: 18px;
                     line-height: 1.2em;
                     font-weight: 900;
-                    color: #bbaea3;
+                    color: #828080;
                     padding: 10px;
-                    border: 2px solid #ede7e1;
+                    border: 2px solid #e4e2e2;
                     border-radius: 15px;
                     background-color: #fff;
                 }
                 .button:hover {
-                    background-color: #d8cec6;
-                    color: #ae9e90;
+                    background-color: #FFD800;
+                    color: rgb(0, 0, 0);
                     transition: 0.8s;
                 }
             }
@@ -90,10 +93,13 @@ ul {
         justify-content: center;
         align-items: center;
         gap: 15px;
-        // .search-title {
-        //     padding: 10px;
-        //     color: #8c7d70;
-        // }
+        .error {
+            font-size: 1em;
+            font-weight: 600;
+            line-height: 1.5em;
+            letter-spacing: 1.2px;
+            color: #828080;
+        }
         .search-row {
             padding: 10px;
             display: flex;
@@ -103,22 +109,23 @@ ul {
             gap: 10px;
             input[type="search"] {
                 font-family: 'Montserrat', sans-serif;
-                background-color: #ffffff31;
-                border: 1px inset #ede2d1;
+                background-color: #ffffff7d;
+                border: 1px inset #e9e8e8;
                 border-radius: 15px;
                 width: 50vw;
                 height: 2.7em;
                 padding-left: 0.8em;
                 padding-right: 0.8em;
                 font-size: 1em;
+                font-weight: 600;
                 line-height: 1.5em;
-                color: #8c7d70;
+                color: #828080;
                 letter-spacing: 1px;
                 outline: none;
             }
             .btn {
                 padding: 10px;
-                border: 2px solid #ede7e1;
+                border: 2px solid #e4e2e2;
                 background-color: #fff;
                 border-radius: 15px;
                 min-width: 10vw;
@@ -128,11 +135,11 @@ ul {
                 font-size: 1em;
                 letter-spacing: 1px;
                 text-transform: uppercase;
-                color: #bbaea3;
+                color: #828080;
             }
             .btn:hover {
-                background-color: #d8cec6;
-                color: #ae9e90;
+                background-color: #FFD800;
+                color: rgb(0, 0, 0);
                 transition: 0.8s;
                 cursor: pointer;
             }
@@ -144,15 +151,25 @@ ul {
             justify-content: center;
             padding: 20px;
             .card {
-                width: 50vw;
+                position: relative;
+                width: 45vw;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                background-color: rgb(251, 246, 246);
-                box-shadow: 0px 5px 11px -5px rgba(0, 0, 0, 0.29);
+                background-color: #fff;
+                box-shadow: 0px 5px 11px -5px rgba(0, 0, 0, 0.397);
                 border: 2px solid #ede7e1;
                 border-radius: 15px;
                 gap: 10px;
+                .heart {
+                    position: absolute;
+                    top: 2vh;
+                    right: 1vw;
+                    width: 200px; 
+                    aspect-ratio: 1;
+                    border-image: radial-gradient(rgb(255, 255, 255) 69%,#0000 70%) 84.5% fill/100%;
+                    clip-path: polygon(-41% 0,50% 91%, 141% 0);
+                }
                 .poster-wrapper {
                     display: flex;
                     align-items: center;
@@ -160,15 +177,26 @@ ul {
                     width: 100%;
                     border-top-left-radius: 15px;
                     border-top-right-radius: 15px;
-                    background-color: rgb(36, 35, 35);
-                    box-shadow: 0px 5px 11px -5px rgba(0, 0, 0, 0.438);
+                    background-color: #fdbf23;
+                    background: #FDB815;
+                    background: -moz-linear-gradient(top, #FDB815 0%, #FDD440 56%, #FDEB51 100%);
+                    background: -webkit-linear-gradient(top, #FDB815 0%, #FDD440 56%, #FDEB51 100%);
+                    background: linear-gradient(to bottom, #FDB815 0%, #FDD440 56%, #FDEB51 100%);
+                    box-shadow: 0px 5px 11px -5px rgba(0, 0, 0, 0.297);
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    margin-top: -2px;
                     .poster-img,
                     .filler-poster {
                         background-color: #dbdada;
                         width: 450px;
                         height: 400px;
-                        padding: 5px;
-                        background-color: rgb(36, 35, 35);
+                        padding: 20px;
+                        background-color: rgb(255, 255, 255);
+                        @media (max-width: 1234px) {
+                            width: 60%;
+                            height: 60%;
+                        }
                     }
                 }
                 .info {
@@ -185,19 +213,18 @@ ul {
                         align-items: center;
                         padding: 20px;
                         .title {
+                            text-align: center;
                             width: 50%;
-                        }
-                        .heart {
-                            // display:inline-block;
-                            width: 200px; 
-                            aspect-ratio: 1;
-                            border-image: radial-gradient(rgb(255, 255, 255) 69%,#0000 70%) 84.5% fill/100%;
-                            clip-path: polygon(-41% 0,50% 91%, 141% 0);
-                            box-shadow: 0px 5px 11px -5px rgba(0, 0, 0, 0.527);
+                            color: #646464;
+                            // text-shadow: -2px 0px 6px #0a0a04;
+                            font-size: 30px;
+                            line-height: 1.2em;
+                            font-weight: 900;
                         }
                     }
                     .info-table {
-                        width: 50vw;
+                        width: 42vw;
+                        padding-bottom: 10px;
                         .table-title {
                             text-align: center;
                         }

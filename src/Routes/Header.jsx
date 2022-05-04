@@ -7,7 +7,7 @@ export default function Header () {
             <div className="header-container">
                 <div className="content">
                     <div>
-                        <Link className="logo" to='/search'>Recipes</Link> 
+                        <Link className="logo" to='/search'>TheMeal</Link> 
                     </div>
                     <ul className="links">
                         <li>
