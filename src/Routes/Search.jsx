@@ -9,9 +9,8 @@ export default function Search ({search, findData, results, handleSearch, errorM
 
     return (
         <div className="search-container">
-            {/* <h1 className="search-title">Search</h1> */}
             <form className="search-row" onSubmit={submit}>
-                <input type='search' autoComplete="off" name='search' id='search' placeholder='Search your dish' value={search} onChange={handleSearch}></input>
+                <input type='search' autoComplete="off" placeholder='Search your dish' value={search} onChange={handleSearch}></input>
                 <input type='submit' value="search" className="btn" onClick={findData}></input>
             </form>
 

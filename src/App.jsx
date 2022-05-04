@@ -5,13 +5,12 @@ import Header from './Routes/Header';
 import FavoriteList from './Routes/FavoriteList';
 import Search from './Routes/Search';
 
-
 function App() {
 
-  const [favorites, setFavorites] = useState([]);
-  const [results, setResults] = useState([]);
   const [search, setSearch] = useState('');
+  const [results, setResults] = useState([]);
   const [errorMsg, setErrorMsg] = useState('');
+  const [favorites, setFavorites] = useState([]);
 
   useEffect (() => {
     let data = localStorage.getItem('favorite');
@@ -26,7 +25,6 @@ function App() {
   const deleteFavorite = id => {
     const newData = favorites.filter(fw => fw.id !== id);
       localStorage.setItem('favorite', JSON.stringify(newData));
-
       setFavorites(favorites => favorites.filter(fw => fw.id !== id));
   }
 
@@ -56,9 +54,6 @@ function App() {
     }
   };
 
-  const selectedRecipes = (recipe) => {
-    setResults(recipe)
-  }
 
   return (
     <BrowserRouter>
@@ -66,7 +61,13 @@ function App() {
           <Header></Header>
         <Routes>
           <Route path='/favorites' element={<FavoriteList></FavoriteList>}></Route>
-          <Route path='/search' element={<Search search={search} findData={findData} handleSearch={handleSearch} results={results} selectedRecipes={selectedRecipes} errorMsg={errorMsg}></Search>}></Route>
+          <Route path='/search' element={<Search
+            search={search} 
+            findData={findData} 
+            handleSearch={handleSearch} 
+            results={results} 
+            errorMsg={errorMsg}>
+            </Search>}></Route>
         </Routes>
       </div>
     </BrowserRouter>
