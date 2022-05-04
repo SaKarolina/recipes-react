@@ -144,7 +144,7 @@ ul {
             justify-content: center;
             padding: 20px;
             .card {
-                width: fit-content;
+                width: 50vw;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -153,14 +153,22 @@ ul {
                 border: 2px solid #ede7e1;
                 border-radius: 15px;
                 gap: 10px;
-                padding: 10px;
                 .poster-wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    border-top-left-radius: 15px;
+                    border-top-right-radius: 15px;
+                    background-color: rgb(36, 35, 35);
+                    box-shadow: 0px 5px 11px -5px rgba(0, 0, 0, 0.438);
                     .poster-img,
                     .filler-poster {
                         background-color: #dbdada;
                         width: 450px;
                         height: 400px;
-                        border-radius: 15px;
+                        padding: 5px;
+                        background-color: rgb(36, 35, 35);
                     }
                 }
                 .info {
@@ -172,10 +180,12 @@ ul {
                     .info-header {
                         width: 100%;
                         display: flex;
-                        flex-direction: row;
-                        justify-content: space-around;
+                        flex-direction: column;
+                        justify-content: center;
                         align-items: center;
+                        padding: 20px;
                         .title {
+                            width: 50%;
                         }
                         .heart {
                             // display:inline-block;
@@ -184,6 +194,22 @@ ul {
                             border-image: radial-gradient(rgb(255, 255, 255) 69%,#0000 70%) 84.5% fill/100%;
                             clip-path: polygon(-41% 0,50% 91%, 141% 0);
                             box-shadow: 0px 5px 11px -5px rgba(0, 0, 0, 0.527);
+                        }
+                    }
+                    .info-table {
+                        width: 50vw;
+                        .table-title {
+                            text-align: center;
+                        }
+                        td, th {
+                            border: 1px solid rgb(216, 210, 210);
+                            padding: 1rem;
+                        }
+                        .instruction {
+                            text-align: justify;
+                            letter-spacing: 0.5px;
+                            font-size: 13px;
+                            line-height: 1.5em;
                         }
                     }
                 }

@@ -17,10 +17,10 @@ function ResultList ({search}) {
                         <div className="heart" style={{width: '2em'}}></div>
                     </div>
 
-                    <table>
+                    <table className="info-table">
                         <thead>
                             <tr>
-                                <th>Ingredients</th>
+                                <th colSpan="2" className="table-title">Ingredients</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,12 +39,12 @@ function ResultList ({search}) {
                         </tbody>
                         <thead>
                             <tr>
-                                <th>Instructions</th>
+                                <th colSpan="2" className="table-title">Instructions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>
+                                <td colSpan="2" className="instruction">
                                     {search.strInstructions}
                                 </td>
                             </tr>
