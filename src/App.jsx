@@ -22,6 +22,11 @@ function App() {
   }, []);
 
   const addFavorite = (search) => {
+    const catchDuplicate = favorites.find((favorite) => (favorite.idMeal === search.idMeal));
+    if (catchDuplicate) {
+      return
+    }
+
     const newFavorites = [...favorites];
     newFavorites.push(search);
 
@@ -29,17 +34,17 @@ function App() {
     setFavorites(newFavorites);
   };
 
-  // const deleteFavorite = (idMeal) => {
-  //   const newData = favorites.filter((favorite) => favorite.idMeal !== idMeal);
-  //   localStorage.setItem("favorite", JSON.stringify(newData));
-  //   setFavorites(newData);
-  // };
-
   const handleSearch = (e) => {
     setSearch(e.target.value);
   };
 
   const findData = () => {
+    if (search.length === 0) {
+      setResults([]);
+      // console.log(`Please fill out this field.`);
+      setErrorMsg(`Please fill out this field.`);
+    }
+
     if (search !== "") {
       fetch(`https://themealdb.com/api/json/v1/1/search.php?s=${search}`)
         .then((res) => res.json())
@@ -48,10 +53,7 @@ function App() {
           if (dataCopy !== null) {
             setResults(dataCopy);
             setErrorMsg("");
-            // } else if (search.length === 0) {
-            //   setResults([]);
-            //   console.log(`Please fill out this field.`);
-            //   // setErrorMsg(`Please fill out this field.`);
+
           } else {
             setResults([]);
             setErrorMsg(`Sorry, we couldn't find any results for "${search}".`);
@@ -70,7 +72,6 @@ function App() {
             path="/favorites"
             element={
               <FavoriteList
-                // deleteFavorite={deleteFavorite}
                 search={search}
               ></FavoriteList>
             }
