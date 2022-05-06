@@ -10,6 +10,7 @@ function App() {
   const [results, setResults] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
   const [favorites, setFavorites] = useState([]);
+  const [like, setLike] = useState(false);
 
   useEffect(() => {
     let data = localStorage.getItem("favorite");
@@ -32,6 +33,7 @@ function App() {
 
     localStorage.setItem("favorite", JSON.stringify(newFavorites));
     setFavorites(newFavorites);
+    setLike(true);
   };
 
   const handleSearch = (e) => {
@@ -41,7 +43,6 @@ function App() {
   const findData = () => {
     if (search.length === 0) {
       setResults([]);
-      // console.log(`Please fill out this field.`);
       setErrorMsg(`Please fill out this field.`);
     }
 
