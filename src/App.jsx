@@ -22,6 +22,15 @@ function App() {
     }
   }, []);
 
+  // const changeColor = () => {
+  //   let heart = document.getElementsByClassName("heart");
+  //   if (heart === true) {
+  //     heart.style.color = '#fff';
+  //   } else {
+  //     heart.style.color = '#00AF11';
+  //   }
+  // }
+
   const addFavorite = (search) => {
     const catchDuplicate = favorites.find((favorite) => (favorite.idMeal === search.idMeal));
     if (catchDuplicate) {
@@ -68,29 +77,13 @@ function App() {
     <BrowserRouter>
       <div className="app">
         <Header></Header>
+
         <Routes>
-          <Route
-            path="/favorites"
-            element={
-              <FavoriteList
-                search={search}
-              ></FavoriteList>
-            }
-          ></Route>
-          <Route
-            path="/search"
-            element={
-              <Search
-                search={search}
-                findData={findData}
-                handleSearch={handleSearch}
-                results={results}
-                errorMsg={errorMsg}
-                addFavorite={addFavorite}
-              ></Search>
-            }
-          ></Route>
+          <Route path='/' element={<div className="first-page">Welcome</div>}></Route>
+          <Route path="/favorites" element={<FavoriteList search={search}></FavoriteList>}></Route>
+          <Route path="/search" element={<Search search={search} findData={findData} handleSearch={handleSearch} results={results} errorMsg={errorMsg} addFavorite={addFavorite}></Search>}></Route>
         </Routes>
+
       </div>
     </BrowserRouter>
   );

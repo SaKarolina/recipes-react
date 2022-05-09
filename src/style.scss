@@ -36,6 +36,16 @@ li {
     justify-content: flex-start;
     align-items: center;
     background-color: transparent;
+    .first-page {
+        margin-top: 20vh;
+        color: #fff;
+        text-shadow: -2px 0px 6px #0a0a0477;
+        font-size: 35px;
+        line-height: 1.2em;
+        font-weight: 900;  
+        letter-spacing: 5px;
+        text-transform: uppercase;
+    }
     .header-container {
         width: 100vw;
         display: flex;
@@ -172,6 +182,7 @@ li {
                 top: 1vh;
                 right: 1vw;
                 font-size: 36px;
+                color: #fff;
                 cursor: pointer;
             }
             .poster-wrapper {

@@ -21,7 +21,7 @@ export default function FavoriteList({ search }) {
 
   return (
     <div className="app">
-      <h1 style={{ padding: '20px' }}>My Favorites</h1>
+      <h1 style={{ padding: '20px', color: '#fff', textShadow: '-2px 0px 6px #0a0a04b8' }}>My Favorites</h1>
       <div className="fav-container">
         {favorites.map((search) => (
           <div key={search.idMeal}>
