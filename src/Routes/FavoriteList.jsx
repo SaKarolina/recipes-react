@@ -27,7 +27,7 @@ export default function FavoriteList({ search }) {
           <div key={search.idMeal}>
             <div className="card">
               <div className="poster-wrapper">
-                <span className="heart" onClick={() => deleteFavorite(search.idMeal)}>&#10084;</span>
+                <span className="heart" onClick={() => deleteFavorite(search.idMeal)} style={{color: "red"}}>&#10084;</span>
                 <img className="poster-img" alt={search.strMeal} src={`${search.strMealThumb}`}/>
               </div>
 

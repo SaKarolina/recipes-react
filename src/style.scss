@@ -18,7 +18,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-image: url(./Img/background.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: right;
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
@@ -40,11 +40,14 @@ li {
         margin-top: 20vh;
         color: #fff;
         text-shadow: -2px 0px 6px #0a0a0477;
-        font-size: 35px;
+        font-size: 3rem;
         line-height: 1.2em;
         font-weight: 900;  
         letter-spacing: 5px;
         text-transform: uppercase;
+        @media(max-width: "450px") {
+            font-size: 2rem;
+        }
     }
     .header-container {
         width: 100vw;
@@ -65,6 +68,9 @@ li {
             justify-content: space-between;
             align-items: center;
             padding: 25px 30px;
+            @media(max-width: "450px") {
+                flex-direction: column;
+            }
             .logo {
                 color: #ffffff;
                 text-shadow: -2px 0px 6px #0a0a04;
@@ -80,6 +86,10 @@ li {
                 @media(max-width: "502px") {
                     justify-content: flex-end;
                     gap: 40px;
+                }
+                @media(max-width: "450px") {
+                    flex-direction: column;
+                    margin-top: 2rem;
                 }
                 .button {
                     font-size: 18px;
@@ -126,9 +136,12 @@ li {
             align-items: center;
             justify-content: center;
             gap: 10px;
+            @media(max-width: "450px") {
+                flex-direction: column;
+            }
             input[type="search"] {
                 font-family: 'Montserrat', sans-serif;
-                background-color: #ffffff7d;
+                background-color: #ffffffd3;
                 border: 1px inset #e9e8e8;
                 border-radius: 15px;
                 width: 50vw;
@@ -141,6 +154,9 @@ li {
                 color: #828080;
                 letter-spacing: 1px;
                 outline: none;
+                @media(max-width: "450px") {
+                    width: 80vw;
+                }
             }
             .btn {
                 padding: 10px;
@@ -180,16 +196,27 @@ li {
             .heart {
                 position: absolute;
                 top: 1vh;
-                right: 1vw;
+                right: 2vw;
                 font-size: 36px;
                 color: #fff;
                 cursor: pointer;
+                @media(min-width: "1234px") {
+                    font-size: 30px;
+                    right: 1vw;
+                }
+                @media(max-width: "450px") {
+                    font-size: 25px;
+                    right: 3vw;
+                }
+            }
+            .heart:active {
+                color: red;
             }
             .poster-wrapper {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                width: 100%;
+                width: 101%;
                 border-top-left-radius: 15px;
                 border-top-right-radius: 15px;
                 background-color: #fdbf23;
@@ -234,6 +261,9 @@ li {
                         font-size: 30px;
                         line-height: 1.2em;
                         font-weight: 900;
+                        @media(max-width: "450px") {
+                            font-size: 20px;
+                        }
                     }
                 }
                 .info-table {

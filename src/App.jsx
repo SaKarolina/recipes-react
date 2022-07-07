@@ -79,7 +79,7 @@ function App() {
         <Header></Header>
 
         <Routes>
-          <Route path='/' element={<div className="first-page">Welcome</div>}></Route>
+          <Route path='/recipes-react' element={<div className="first-page">Welcome</div>}></Route>
           <Route path="/favorites" element={<FavoriteList search={search}></FavoriteList>}></Route>
           <Route path="/search" element={<Search search={search} findData={findData} handleSearch={handleSearch} results={results} errorMsg={errorMsg} addFavorite={addFavorite}></Search>}></Route>
         </Routes>
