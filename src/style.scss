@@ -271,10 +271,16 @@ li {
                     padding-bottom: 10px;
                     .table-title {
                         text-align: center;
+                        @media(max-width: "420px") {
+                            font-size: 15px;
+                        }
                     }
                     td, th {
                         border: 1px solid rgb(216, 210, 210);
                         padding: 1rem;
+                        @media(max-width: "420px") {
+                            padding: 0;
+                        }
                     }
                     .instruction {
                         text-align: justify;
