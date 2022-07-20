@@ -193,6 +193,9 @@ li {
             @media(max-width: "1234px") {
                 width: 60vw;
             }
+            @media(max-width: "450px") {
+                width: 80vw;
+            }
             .heart {
                 position: absolute;
                 top: 1vh;
@@ -262,24 +265,24 @@ li {
                         line-height: 1.2em;
                         font-weight: 900;
                         @media(max-width: "450px") {
-                            font-size: 20px;
+                            font-size: 18px;
                         }
                     }
                 }
                 .info-table {
                     width: 42vw;
                     padding-bottom: 10px;
+                    @media(max-width: "450px") {
+                        width: 70vw;
+                    }
                     .table-title {
                         text-align: center;
-                        @media(max-width: "420px") {
-                            font-size: 15px;
-                        }
                     }
                     td, th {
                         border: 1px solid rgb(216, 210, 210);
                         padding: 1rem;
-                        @media(max-width: "420px") {
-                            padding: 0;
+                        @media(max-width: "450px") {
+                            font-size: 14px;
                         }
                     }
                     .instruction {
